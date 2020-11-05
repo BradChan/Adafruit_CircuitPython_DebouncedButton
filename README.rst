@@ -17,7 +17,7 @@ Introduction
     :target: https://github.com/psf/black
     :alt: Code Style: Black
 
-CircuitPython button debouncer
+CircuitPython button debouncer.
 
 
 Dependencies
