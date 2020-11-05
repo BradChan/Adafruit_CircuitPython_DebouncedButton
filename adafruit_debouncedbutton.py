@@ -62,6 +62,7 @@ class Debouncer:
         self._rok = False
 
     def read(self):
+        """Update the debouncer state. MUST be called frequently"""
         nowt = time.monotonic()
         nowv = self._pin.value
         if self._invert:
