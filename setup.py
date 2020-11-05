@@ -52,7 +52,7 @@ setup(
     ],
     # What does your project relate to?
     keywords="adafruit blinka circuitpython micropython debouncedbutton "
-             "adafruit,circuitpython,micropython,DebouncedButton,debouncer",
+    "adafruit,circuitpython,micropython,DebouncedButton,debouncer",
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
     # TODO: IF LIBRARY FILES ARE A PACKAGE FOLDER,

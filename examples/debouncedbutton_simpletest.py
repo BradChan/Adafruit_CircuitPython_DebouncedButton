@@ -8,7 +8,7 @@ from adafruit_debouncedbutton import Debouncer
 
 btnAPin = digitalio.DigitalInOut(board.D12)
 btnAPin.switch_to_input(pull=digitalio.Pull.DOWN)
-btnA = Debouncer(btnAPin,0.01,False)
+btnA = Debouncer(btnAPin, 0.01, False)
 
 while True:
     btnA.read()
@@ -22,5 +22,3 @@ while True:
         print("A wasReleased")
     if btnA.pressedFor(1):
         print("A pressedFor 1")
-
-    

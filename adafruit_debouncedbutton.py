@@ -37,29 +37,29 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_DebouncedButton.g
 
 import time
 
+
 class Debouncer:
-    
     def __init__(self, btnpin, dbt=0.01, invert=False):
-        self._pin=btnpin
-        self._dbtime=dbt
-        self._invert=invert
-        self._state=self._pin.value
+        self._pin = btnpin
+        self._dbtime = dbt
+        self._invert = invert
+        self._state = self._pin.value
         if self._invert:
-            self._state=not self._state
-        self._laststate=self._state
-        self._time=time.monotonic()
-        self._lasttime=self._time
-        self._lastchgtime=self._time
-        self._presstime=self._time
-        self._changed=False
-        self._rok=False
+            self._state = not self._state
+        self._laststate = self._state
+        self._time = time.monotonic()
+        self._lasttime = self._time
+        self._lastchgtime = self._time
+        self._presstime = self._time
+        self._changed = False
+        self._rok = False
 
     def read(self):
         nowt = time.monotonic()
         nowv = self._pin.value
         if self._invert:
-            nowv=not nowv
-        if (nowt-self._lastchgtime)<self._dbtime:
+            nowv = not nowv
+        if (nowt - self._lastchgtime) < self._dbtime:
             self._lasttime = self._time
             self._time = nowt
             self._changed = False
@@ -69,13 +69,13 @@ class Debouncer:
             self._time = nowt
             self._laststate = self._state
             self._state = nowv
-            if self._state!=self._laststate:
+            if self._state != self._laststate:
                 self._lastchgtime = nowt
                 self._changed = True
-                self._rok=False
-                #self._longPressed = False
+                self._rok = False
+                # self._longPressed = False
                 if self._state:
-                    self._presstime=self._time
+                    self._presstime = self._time
             else:
                 self._changed = False
             return self._state
@@ -91,7 +91,7 @@ class Debouncer:
     @property
     def wasPressed(self):
         return self._state and self._changed
-    
+
     @property
     def wasReleased(self):
         return not self._state and self._changed
@@ -100,6 +100,6 @@ class Debouncer:
         if self._rok:
             return False
         else:
-            if (self._time-self._lastchgtime)>=lent:
-                self._rok=True
+            if (self._time - self._lastchgtime) >= lent:
+                self._rok = True
         return self._state and self._rok
