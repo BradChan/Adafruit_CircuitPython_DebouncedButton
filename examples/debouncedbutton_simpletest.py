@@ -6,19 +6,19 @@ import board
 import digitalio
 from adafruit_debouncedbutton import Debouncer
 
-btnAPin = digitalio.DigitalInOut(board.D12)
-btnAPin.switch_to_input(pull=digitalio.Pull.DOWN)
-btnA = Debouncer(btnAPin, 0.01, False)
+btn_a_Pin = digitalio.DigitalInOut(board.D12)
+btn_a_Pin.switch_to_input(pull=digitalio.Pull.DOWN)
+btn_a = Debouncer(btn_a_Pin, 0.01, False)
 
 while True:
-    btnA.read()
-    if btnA.isPressed:
+    btn_a.read()
+    if btn_a.is_pressed:
         print("A isPressed")
-    if btnA.isReleased:
+    if btn_a.is_released:
         print("A isReleased")
-    if btnA.wasPressed:
+    if btn_a.was_pressed:
         print("A wasPressed")
-    if btnA.wasReleased:
+    if btn_a.was_released:
         print("A wasReleased")
-    if btnA.pressedFor(1):
+    if btn_a.pressed_for(1):
         print("A pressedFor 1")

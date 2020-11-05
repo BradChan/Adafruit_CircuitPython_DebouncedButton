@@ -89,26 +89,26 @@ class Debouncer:
             return self._state
 
     @property
-    def isPressed(self):
-        """Return the current isPressed value."""
+    def is_pressed(self):
+        """Return the current is_pressed value."""
         return self._state
 
     @property
-    def isReleased(self):
-        """Return the current isReleased value."""
+    def is_released(self):
+        """Return the current is_released value."""
         return not self._state
 
     @property
-    def wasPressed(self):
-        """Return the current wasPressed value."""
+    def was_pressed(self):
+        """Return the current was_pressed value."""
         return self._state and self._changed
 
     @property
-    def wasReleased(self):
-        """Return the current wasReleased value."""
+    def was_released(self):
+        """Return the current was_released value."""
         return not self._state and self._changed
 
-    def pressedFor(self, lent):
+    def pressed_for(self, lent):
         """Return pressed value."""
         if self._rok:
             return False
