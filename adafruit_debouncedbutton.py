@@ -39,7 +39,14 @@ import time
 
 
 class Debouncer:
+    """Debounce an input button"""
+
     def __init__(self, btnpin, dbt=0.01, invert=False):
+        """Make am instance.
+        :param DigitalInOut: the DigitalIO to debounce
+        :param int interval: bounce threshold in seconds (default is 0.010, i.e. 10 milliseconds)
+        :param bool: invert
+        """
         self._pin = btnpin
         self._dbtime = dbt
         self._invert = invert
@@ -82,21 +89,26 @@ class Debouncer:
 
     @property
     def isPressed(self):
+        """Return the current isPressed value."""
         return self._state
 
     @property
     def isReleased(self):
+        """Return the current isReleased value."""
         return not self._state
 
     @property
     def wasPressed(self):
+        """Return the current wasPressed value."""
         return self._state and self._changed
 
     @property
     def wasReleased(self):
+        """Return the current wasReleased value."""
         return not self._state and self._changed
 
     def pressedFor(self, lent):
+        """Return pressed value."""
         if self._rok:
             return False
         else:
