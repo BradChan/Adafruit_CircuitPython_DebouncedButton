@@ -16,15 +16,15 @@ Implementation Notes
 
 **Hardware:**
 
-.. todo:: Add links to any specific hardware product page(s), or category page(s). Use unordered list & hyperlink rST
-   inline format: "* `Link Text <url>`_"
+Not all hardware / CircuitPython combinations are capable of running the
+debouncer correctly for an extended length of time.  If this line works
+on your microcontroller, then the debouncer should work forever:
 
 **Software and Dependencies:**
 
 * Adafruit CircuitPython firmware for the supported boards:
   https://github.com/adafruit/circuitpython/releases
 
-.. todo:: Uncomment or remove the Bus Device and/or the Register library dependencies based on the library's use of either.
 
 # * Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
 # * Adafruit's Register library: https://github.com/adafruit/Adafruit_CircuitPython_Register
@@ -71,7 +71,6 @@ class Debouncer:
             self._lasttime = self._time
             self._time = nowt
             self._changed = False
-            return self._state
         else:
             self._lasttime = self._time
             self._time = nowt
@@ -86,7 +85,7 @@ class Debouncer:
                     self._presstime = self._time
             else:
                 self._changed = False
-            return self._state
+        return self._state
 
     @property
     def is_pressed(self):
